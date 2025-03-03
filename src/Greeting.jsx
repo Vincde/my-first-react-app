@@ -3,14 +3,20 @@ function Greeting() {
   }
 
   function MyFavoriteFood() {
-    return (<>
-    <h1>My favorite foods are: <br /></h1>
+    return (
+    <h1>My favorite foods are: <br />
     <div>Pizza</div>
     <div>Pasta</div>
     <div>Potatoes</div>
+    </h1>
+    
 
-    </>)
+    )
 
   }
 
-  export {Greeting, MyFavoriteFood};
+  function ILovePizza(){
+    return <p>hewwo</p>
+  }
+
+  export {Greeting, MyFavoriteFood, ILovePizza};
