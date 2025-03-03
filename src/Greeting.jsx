@@ -1,16 +1,17 @@
+import { createElement } from "react";
+
 function Greeting() {
-    return <h1>&quot; I swear by my pretty floral bonnet, i will end you.&quot;</h1>
-  }
+  return createElement('h1', {className: 'greeting'}, 'hello', createElement('i', null), '.welcome!');
+}
 
   function MyFavoriteFood() {
     return (
-    <h1>My favorite foods are: <br />
+      <>
+    <h1>My favorite foods are: <br /></h1>
     <div>Pizza</div>
     <div>Pasta</div>
     <div>Potatoes</div>
-    </h1>
-    
-
+    </>
     )
 
   }
@@ -19,4 +20,8 @@ function Greeting() {
     return <p>hewwo</p>
   }
 
-  export {Greeting, MyFavoriteFood, ILovePizza};
+  function ILoveU(){
+    return <footer>aaaaaaaaaaa</footer>
+  }
+
+  export {Greeting, MyFavoriteFood, ILovePizza, ILoveU};
