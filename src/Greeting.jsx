@@ -22,6 +22,31 @@ function Greeting() {
 
   function ILoveU(){
     return <footer>aaaaaaaaaaa</footer>
+  } 
+
+  const person = {
+    name: 'Gregorio Y. Zara',
+    theme: {
+      backgroundColor: 'black',
+      color:'pink',
+    }
+  };
+
+  export default function TodoList() {
+    return(
+      <div style={person.theme}>
+        <h1>{person.name}s Todos</h1>
+        <img 
+        className = "avatar"
+        src="" alt="" />
+
+      <ul>
+        <li>Improve the videophone</li>
+        <li>Prepare aeronautics lectures</li>
+        <li>Work on the alcohol-fuelled engine</li>
+      </ul>
+      </div>
+    );
   }
 
   export {Greeting, MyFavoriteFood, ILovePizza, ILoveU};
