@@ -1,16 +1,13 @@
-
+import List from './Greeting';
 import './App.css'
 
-function App(){
-  const animals = ["Lion", "Cow", "Snake", "Lizard"];
-  const animalsList = animals.map((animal) => <li key={animal}>{animal}</li>)
+function App() {
+  const animals = [];
 
   return(
     <div>
       <h1>Animals: </h1>
-      <ul>
-        {animalsList}
-      </ul>
+      <List animals = {animals} />
     </div>
   );
 }

@@ -1,52 +1,46 @@
-import { createElement } from "react";
 
-function Greeting() {
-  return createElement('h1', {className: 'greeting'}, 'hello', createElement('i', null), '.welcome!');
+
+/* function ListItem(props) {
+  return <li>{props.animal}</li>
+} */
+
+function List(props){
+
+  return(
+    <>
+      {!props.animals ? (
+        <div>Loading...</div>
+      ) : props.animals.length > 0 ? (
+        <ul>
+          {props.animals.map((animal) => {
+            return <li key={animal}>{animal}</li>
+          })}
+        </ul>
+      ) : (
+        <div>There are no animals in the list!</div>
+      )}
+    </>
+  );
 }
 
-  function MyFavoriteFood() {
-    return (
-      <>
-    <h1>My favorite foods are: <br /></h1>
-    <div>Pizza</div>
-    <div>Pasta</div>
-    <div>Potatoes</div>
+
+export function List2(props){
+  return(
+    <>
+      {!props.animals && <div>Loading...</div>}
+      {props.animals && props.animals.length > 0 && (
+        <ul>
+          {props.animals.map((animal) => {
+            return <li key={animal}>{animal}</li>
+          })}
+        </ul>
+      )}
+      {props.animals && props.animals.length === 0 && <div>There are no animals in the list!</div> }
     </>
-    )
+  )
+}
 
-  }
 
-  function ILovePizza(){
-    return <p>hewwo</p>
-  }
 
-  function ILoveU(){
-    return <footer>aaaaaaaaaaa</footer>
-  } 
 
-  const person = {
-    name: 'Gregorio Y. Zara',
-    theme: {
-      backgroundColor: 'black',
-      color:'pink',
-    }
-  };
-
-  export default function TodoList() {
-    return(
-      <div style={person.theme}>
-        <h1>{person.name}s Todos</h1>
-        <img 
-        className = "avatar"
-        src="" alt="" />
-
-      <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
-      </ul>
-      </div>
-    );
-  }
-
-  export {Greeting, MyFavoriteFood, ILovePizza, ILoveU};
+  export default List;
