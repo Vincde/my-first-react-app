@@ -4,43 +4,38 @@
   return <li>{props.animal}</li>
 } */
 
-function List(props){
+function Item({ name, isPacked }){
+  let itemContent = name;
+  if(isPacked){
+    itemContent = (
+      <del>
+        {name + '✅'}
+      </del>
+    ); 
+  }
 
   return(
-    <>
-      {!props.animals ? (
-        <div>Loading...</div>
-      ) : props.animals.length > 0 ? (
-        <ul>
-          {props.animals.map((animal) => {
-            return <li key={animal}>{animal}</li>
-          })}
-        </ul>
-      ) : (
-        <div>There are no animals in the list!</div>
-      )}
-    </>
+    <li className="item">
+      {itemContent}
+    </li>
+  );
+}
+
+function PackingList(){
+
+  return(
+    <section>
+      <h1>Sally Ride&apos;s packing list</h1>
+      <ul>
+          <Item isPacked={true} name="space suit"/>
+          <Item isPacked={true} name="Helmet with a golden leaf"/>
+          <Item isPacked={false} name="Photo of Tam"/>
+      </ul>
+    </section>
   );
 }
 
 
-export function List2(props){
-  return(
-    <>
-      {!props.animals && <div>Loading...</div>}
-      {props.animals && props.animals.length > 0 && (
-        <ul>
-          {props.animals.map((animal) => {
-            return <li key={animal}>{animal}</li>
-          })}
-        </ul>
-      )}
-      {props.animals && props.animals.length === 0 && <div>There are no animals in the list!</div> }
-    </>
-  )
-}
 
 
-
-
-  export default List;
+  export default PackingList;
