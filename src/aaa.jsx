@@ -1,29 +1,31 @@
-const drinks = {
-    tea: {
-        part: 'leaf',
-        caffeine: '15-70 mg/cup',
-        age: '4000+ years'
-    },
-    coffee: {
-        part:'bean',
-        caffeine: '80-185 mg/cup',
-        age: '1000+ years'
-    }
-}
+const { Fragment } = require("react");
 
-function Drink({name}) {
-    const info = drinks[name];
-    return(
-        <section>
-            <h1>{name}</h1>
-            <dl>
-                <dt>Part of Plant</dt>
-                <dd>{info.part}</dd>
-                <dt>Caffeine content</dt>
-                <dd>{info.caffeine}</dd>
-                <dt>Age</dt>
-                <dd>{info.age}</dd>
-            </dl>
-        </section>
-    )
-}
+const people = [{
+    id: 0,
+    name: 'Creola Katherine Johnson',
+    profession: 'mathematician',
+  }, {
+    id: 1,
+    name: 'Mario José Molina-Pasquel Henríquez',
+    profession: 'chemist',
+  }, {
+    id: 2,
+    name: 'Mohammad Abdus Salam',
+    profession: 'physicist',
+  }, {
+    id: 3,
+    name: 'Percy Lavon Julian',
+    profession: 'chemist',  
+  }, {
+    id: 4,
+    name: 'Subrahmanyan Chandrasekhar',
+    profession: 'astrophysicist',
+  }];
+  
+
+  const listItem = people.map((person) => 
+    <Fragment key={person.id}>
+        <h1>{person.name}</h1>
+        <p>{person.bio}</p>
+    </Fragment>
+    );
