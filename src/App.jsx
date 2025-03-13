@@ -1,11 +1,11 @@
-import PackingList from './Greeting';
+import RecipeList from './aaa';
 import './App.css'
 
 function App() {
 
   return(
     <div>
-      <PackingList/>
+      <RecipeList></RecipeList>
     </div>
   );
 }

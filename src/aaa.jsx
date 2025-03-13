@@ -1,31 +1,22 @@
-const { Fragment } = require("react");
+import { Fragment } from "react";
 
-const people = [{
-    id: 0,
-    name: 'Creola Katherine Johnson',
-    profession: 'mathematician',
-  }, {
-    id: 1,
-    name: 'Mario José Molina-Pasquel Henríquez',
-    profession: 'chemist',
-  }, {
-    id: 2,
-    name: 'Mohammad Abdus Salam',
-    profession: 'physicist',
-  }, {
-    id: 3,
-    name: 'Percy Lavon Julian',
-    profession: 'chemist',  
-  }, {
-    id: 4,
-    name: 'Subrahmanyan Chandrasekhar',
-    profession: 'astrophysicist',
-  }];
-  
+const poem = {
+  lines: [
+    'I write, erase, rewrite',
+    'Erase again, and then',
+    'A poppy blooms.'
+  ]
+};
 
-  const listItem = people.map((person) => 
-    <Fragment key={person.id}>
-        <h1>{person.name}</h1>
-        <p>{person.bio}</p>
-    </Fragment>
-    );
+export default function Poem() {
+  return (
+    <article>
+      {poem.lines.map((line, i) =>
+        <Fragment key={i}>
+          {i > 0 && <hr />}
+          <p>{line}</p>
+        </Fragment>
+      )}
+    </article>
+  );
+}
