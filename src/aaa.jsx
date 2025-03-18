@@ -1,22 +1,23 @@
-import { Fragment } from "react";
+import {getImageUrl} from './utils.js';
 
-const poem = {
-  lines: [
-    'I write, erase, rewrite',
-    'Erase again, and then',
-    'A poppy blooms.'
-  ]
-};
 
-export default function Poem() {
-  return (
-    <article>
-      {poem.lines.map((line, i) =>
-        <Fragment key={i}>
-          {i > 0 && <hr />}
-          <p>{line}</p>
-        </Fragment>
-      )}
-    </article>
+function Avatar({person, size}) {
+  return(
+    <img className='avatar'
+     src={getImageUrl(person)} 
+     alt={person.name}
+     width={size}
+     height={size}
+    />
+  );
+}
+
+export default function Profile() {
+  return(
+    <div>
+      <Avatar size={100} person={{name: 'katsuko saruhashi', imageId: 'yfe0df'}} />
+      <Avatar size={80} person={{name:'sdfsf', imageId: 'oweirwer'}}/>
+      <Avatar size={50} person={{name:'sdfsdfs', imageId: 'e344fs'}}/> 
+    </div>
   );
 }
