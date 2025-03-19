@@ -12,10 +12,10 @@ function Avatar({person, size}) {
   );
 }
 
-export default function Profile() {
+export default function Profile(props) {
   return(
-    <div>
-      <Avatar size={100} person={{name: 'katsuko saruhashi', imageId: 'yfe0df'}} />
+    <div className='card'>
+      <Avatar {...props} />
       <Avatar size={80} person={{name:'sdfsf', imageId: 'oweirwer'}}/>
       <Avatar size={50} person={{name:'sdfsdfs', imageId: 'e344fs'}}/> 
     </div>
