@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {getImageUrl} from './utils.js';
 
 
@@ -10,6 +11,11 @@ function Avatar({person, size}) {
      height={size}
     />
   );
+}
+
+function tryUseState(){
+  const [stateValue, setStateValue] = useState(0);
+  
 }
 
 export default function Profile(props) {
