@@ -2,45 +2,39 @@
 import { useState } from "react";
 import "./App.css";
 
-const COLORS = ["pink", "green", "blue", "yellow", "purple"];
+function Person(){
+  const [person, setPerson] = useState({name: "John", age: 100});
 
-function App() {
-  const [nTimes, setNTimes] = useState(0);
-  const [backgroundColor, setBackgroundColor] = useState(COLORS[0]);
+  const handleIncreaseAge = () => {
+    console.log("in handleIncreaseAge (before setPerson call): ", person);
 
-  const onButtonClick = (color) => () => {
-    if(backgroundColor !== color){
-      setNTimes(nTimes + 1);
-    }
+    setPerson({...person, age: person.age + 1});
     
-
-    setBackgroundColor(color);
-    
+    console.log("in handleIncreaseAge (after setPerson call): ", person);
   };
 
+  console.log("during render: ", person);
 
-  return (
-    <div
-      className="App"
-      style={{
-        backgroundColor,
-      }}
-    >
-      {COLORS.map((color) => (
-        <button
-          type="button"
-          key={color}
-          onClick={onButtonClick(color)}
-          className={backgroundColor === color ? "selected" : ""}
-        >
-          {color}
-        </button>
-      ))}
-      <div>
-        Number of Times : {nTimes}
-      </div>
-    </div>
-  );
+  return(
+    <>
+      <h1>{person.name}</h1>
+      <h2>{person.age}</h2>
+      <button onClick={handleIncreaseAge}>Increase age</button>
+    </>
+  )
 }
 
-export default App;
+
+function CustomInput() {
+  const [value, setValue] = useState("");
+
+  return(
+    <input 
+    type="text"
+    value={value}
+    onChange={(event) => setValue(event.target.value)} />
+  )
+}
+  
+
+export {Person as App};
