@@ -4,7 +4,7 @@ import "./App.css";
 
 
 
-function Person() {
+function Person({children}) {
   const [person, setPerson] = useState({ name: "John", age: 100 });
 
   const handleIncreaseAge = () => {
@@ -20,6 +20,7 @@ function Person() {
 
   return (
     <>
+      {children}
       <h1>{person.name}</h1>
       <h2>{person.age}</h2>
       <button onClick={handleIncreaseAge}>Increase age</button>
@@ -27,7 +28,7 @@ function Person() {
   );
 }
 
-function CustomInput() {
+export function CustomInput() {
   const [value, setValue] = useState("");
 
   return (
