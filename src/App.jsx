@@ -4,8 +4,12 @@ import "./App.css";
 
 
 
-function Person({children}) {
+function Person() {
   const [person, setPerson] = useState({ name: "John", age: 100 });
+  const [firstName, setfirstName] = useState("");
+  const [lastName, setlastName] = useState("");
+
+  const fullName = firstName + ' ' + lastName;
 
   const handleIncreaseAge = () => {
     console.log("in handleIncreaseAge (before setPerson call): ", person);
@@ -20,26 +24,29 @@ function Person({children}) {
 
   return (
     <>
-      {children}
-      <h1>{person.name}</h1>
+      <CustomInput name={firstName} onChange={(e) => setfirstName(e.target.value)}  typeofName={"firstname"}></CustomInput>
+      <CustomInput name={lastName} onChange={(e) => setlastName(e.target.value)} typeofName={"lastname"}></CustomInput>
+      <h1>{fullName}</h1>
       <h2>{person.age}</h2>
       <button onClick={handleIncreaseAge}>Increase age</button>
     </>
   );
 }
 
-export function CustomInput() {
-  const [value, setValue] = useState("");
+function CustomInput({name, onChange, typeofName}) {
+  const aa = typeofName === 'firstname' ? 'First name:' : 'Last Name:';
 
   return (
+    <>
+    <h1>{aa}</h1>
     <input
       type="text"
-      value={value}
-      onChange={(event) => setValue(event.target.value)}
+      value={name}
+      onChange={onChange}
     />
+    </>
   );
 }
 
-  
 
 export {Person as App};
