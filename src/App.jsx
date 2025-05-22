@@ -4,17 +4,22 @@ import { useState, useEffect } from "react";
 function App() {
 
 
-  const [value, setValue] = useState('');
-  const [count, setCount] = useState(-1);
+  const [secret, setSecret] = useState({ value: "", countSecrets: 0 });
 
-  useEffect(() => setCount(count + 1), [value]);
+  useEffect(() => {
+    if (secret.value === 'secret') {
+      setSecret(s => ({...s, countSecrets: s.countSecrets + 1}));
+    }
+  }, [secret.value]);
 
-  const onChange = ({ target }) => setValue(target.value);
+  const onChange = ({ target }) => {
+    setSecret(s => ({ ...s, value: target.value }));
+  };
 
   return (
     <div>
-      <input type="text" value={value} onChange={onChange} />
-      <div>Number of changes: {count}</div>
+      <input type="text" value={secret.value} onChange={onChange} />
+      <div>Number of secrets: {secret.countSecrets}</div>
     </div>
   );
 }
